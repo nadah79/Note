@@ -1,0 +1,60 @@
+body{
+    margin: 0;
+    background-image: url("background.jpg");
+
+}
+.mainNav{
+    display: inline;
+    width: 100%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    font-size: 30px;
+    margin: 0;
+}
+.leftnav{
+    float: left;
+
+}
+.rightnav{
+    float: right;
+
+}
+
+nav ul{
+    list-style-type: none;
+    padding: 5px 20px;
+    margin: 0;
+}
+nav li{
+    color: white;
+    display: inline-block;
+    padding:5px 15px;
+    cursor: pointer;
+}
+nav a{
+    text-decoration: none;
+}
+li:hover {
+    color: black;
+    background-color:bisque;
+} 
+#notes{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 70px;
+    left: 20px;
+
+}
+.text{
+    border-radius: 10px 50px;
+    font-size-adjust:  10px;
+    cursor: pointer;
+   }
+.text:optional {
+   user-select: all;
+    background-color: rgb(243, 224, 174);
+   }
