@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sign Up to NotePad</title>
+    <style>
+        #container {
+            width: 50%;
+            height: auto;
+            border: 3px solid black;
+            padding: 10px;
+            background-color: aliceblue;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 150px;
+        }
+
+        input {
+            border-radius: 10px;
+            width: 100%;
+            padding: 10px 0;
+        }
+
+        button {
+            margin: 25px;
+            padding: 10px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .required-field {
+            color: red;
+            ;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .control {
+            margin: 5px 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="registerForm" onsubmit="onFormSubmit()">
+        <div id="container">
+            <h1>Register to NotePad</h1>
+            <div class="control">
+                <label for="name">
+                    Name <span class="required-field">*</span>
+                </label>
+                <input id="name" type="text" required placeholder="Enter your name">
+            </div>
+
+            <div class="control">
+                <label>E-mail <span class="required-field">*</span></label>
+                <input id="email" type="email" required>
+            </div>
+            <div class="control">
+                <label>Password <span class="required-field">*</span></label>
+                <input id="password" type="password" required>
+            </div>
+            <div class="control">
+                <label>Confirm Password <span class="required-field">*</span></label>
+                <input id="confirmPassword" type="password" required>
+            </div>
+            <button type="submit">Sign up</button>
+        </div>
+
+    </form>
+
+    <script src="register.js"></script>
+</body>
+
+</html>

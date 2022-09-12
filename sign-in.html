@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sign in to NotePad</title>
+    <script src="https://kit.fontawesome.com/6945d66857.js" crossorigin="anonymous"></script>
+    <style>
+        #container {
+            width: 50%;
+            height: auto;
+            border: 3px solid black;
+            padding: 10px;
+            background-color: aliceblue;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 150px;
+        }
+
+        body {
+            background-color: #5F9EA0;
+            ;
+        }
+
+        label {
+            padding: 10px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 15px 0;
+        }
+
+        button {
+            margin: 25px;
+            padding: 10px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input:after {
+            content: "*";
+            color: red;
+            ;
+        }
+        .hide-eye{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="loginForm" onsubmit="login()">
+        <div id="container">
+            <h1>Sign in to NotePad</h1>
+            <label for="email">E-mail</label><br>
+            <input id="email" type="email" required><br>
+            <label for="password">Password</label><br>
+            <input id="password" type="password" required>
+            <button type="button" onclick="displayPassword()">
+                <i id="eye" class="fa-solid fa-eye"></i>
+                <i id="eye-slash" class="fa-solid fa-eye-slash hide-eye"></i>
+            </button>
+            <br>
+            <button type="submit">Sign in</button>
+
+        </div>
+    </form>
+
+    <script src="signin.js"></script>
+</body>
+
+</html>
