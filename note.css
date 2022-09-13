@@ -1,6 +1,7 @@
 body{
-    margin: 0;
+    margin: 5em;
     background-image: url("background.jpg");
+    
 
 }
 .mainNav{
@@ -41,20 +42,22 @@ li:hover {
     color: black;
     background-color:bisque;
 } 
-#notes{
-    height: 100%;
+#notPad{
     width: 100%;
-    position: fixed;
-    top: 70px;
-    left: 20px;
-
 }
-.text{
-    border-radius: 10px 50px;
+.textArea{
+    border-radius: 10px ;
     font-size-adjust:  10px;
     cursor: pointer;
-   }
-.text:optional {
+    margin: 10px;
+    resize:horizontal;
+    height: 200px;
+    width: 200px;
+
+
+}
+.textArea:optional {
    user-select: all;
     background-color: rgb(243, 224, 174);
+
    }

@@ -13,8 +13,8 @@
     <nav class="mainNav">
         <nav class="leftnav"> 
             <ul>
-                <li><a href="page.html" id="notePage" title=" notePage"><i class="fa-solid fa-note-sticky"></i> Note.iti</a></li>
-                <li id="addNote" title="add note" onclick="create()" ><i class="fa-solid fa-plus" ></i></li>            
+                <li><a href="#" id="notePage" title=" notePage"><i class="fa-solid fa-note-sticky"></i> Note.iti</a></li>
+                <li id="addNote" title="add note" onclick="createNote()" ><i class="fa-solid fa-plus" ></i></li>            
                 <li id="addToDoList" title="add a to-do list"><i class="fa-solid fa-table-list" ></i></li>            
                 <li id="addImage" title="add an image"><i class="fa-regular fa-image" ></i> </li>  
                 <li id="changeColor" title="change note color"><i class="fa-solid fa-palette"></i></li>  
@@ -23,18 +23,19 @@
         </nav>
         <nav class="rightnav">
             <ul>
-                <li id="login">login</li>
-                <li id="signup">sign up</li>
-                <li id="options" title="options"><i class="fa-solid fa-gear"></i></li>
+               <a id="a-logout" onclick="logout()"><li id="logout">Logout</li></a>
+               <a id="a-login"  href="sign-in.html"> <li id="login">Login</li></a>
+               <a id="a-register"  href="register.html"> <li id="signup">Sign up</li></a>
+               <!-- <li id="options" title="options"><i class="fa-solid fa-gear"></i></li> -->
 
             </ul>
         </nav> 
     </nav>
     </div>
     
-    <section id="notes">
+    <section id="notPad">
        
     </section>
-    <script src="note.js"> </script>
+    <script src="note.js"></script>
 </body>
 </html>

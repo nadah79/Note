@@ -6,34 +6,33 @@
     <script src="https://kit.fontawesome.com/6945d66857.js" crossorigin="anonymous"></script>
     <style>
         #container {
-            width: 50%;
+            width: 30%;
             height: auto;
-            border: 3px solid black;
-            padding: 10px;
-            background-color: aliceblue;
+            border: 3px solid rgba(0, 0, 0, 0.511);
+            border-radius: 10px;
+            padding: 20px;
+            background-color: rgba(247, 247, 247, 0.664);
             display: block;
             margin-left: auto;
             margin-right: auto;
-            margin-top: 150px;
+            margin-top: 100px;
         }
 
         body {
-            background-color: #5F9EA0;
-            ;
+            background-image: url(note5.jpg);
         }
 
         label {
-            padding: 10px;
+            display: block;
+            margin-bottom: 5px;
+
         }
 
         input {
-            padding: 10px;
-            margin: 15px 0;
-        }
-
-        button {
-            margin: 25px;
-            padding: 10px;
+            border-radius: 10px;
+            width: 85%;
+            padding: 10px 0;
+            margin: 10px 0px;
         }
 
         h1 {
@@ -41,11 +40,25 @@
         }
 
         input:after {
-            content: "*";
+            content: " *";
             color: red;
             ;
         }
-        .hide-eye{
+
+        .control {
+            margin: 5px 5px;
+        }
+
+        .btn-eye {
+            border: none;
+            cursor: pointer;
+        }
+
+        .passoword-control{
+            display: flex;
+        }
+
+        .hide-eye {
             display: none;
         }
     </style>
@@ -56,14 +69,22 @@
     <form id="loginForm" onsubmit="login()">
         <div id="container">
             <h1>Sign in to NotePad</h1>
-            <label for="email">E-mail</label><br>
-            <input id="email" type="email" required><br>
-            <label for="password">Password</label><br>
-            <input id="password" type="password" required>
-            <button type="button" onclick="displayPassword()">
-                <i id="eye" class="fa-solid fa-eye"></i>
-                <i id="eye-slash" class="fa-solid fa-eye-slash hide-eye"></i>
-            </button>
+            <div class="control">
+                <label for="email">E-mail</label>
+                <input id="email" type="email" required placeholder="Enter your Email">
+            </div>
+            <div class="control">
+                <label for="password">Password</label>
+                <div class="passoword-control">
+                    <input id="password" type="password" required placeholder="Your Password">
+                    <button class="btn-eye" type="button" onclick="displayPassword()">
+                        <i id="eye" class="fa-solid fa-eye"></i>
+                        <i id="eye-slash" class="fa-solid fa-eye-slash hide-eye"></i>
+                    </button>
+                </div>
+            </div>
+
+
             <br>
             <button type="submit">Sign in</button>
 

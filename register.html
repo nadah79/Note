@@ -4,22 +4,28 @@
 <head>
     <title>Sign Up to NotePad</title>
     <style>
+        body{
+            background-image: url(note5.jpg);
+        }
         #container {
             width: 50%;
             height: auto;
-            border: 3px solid black;
+             border: 3px solid rgba(0, 0, 0, 0.367);
+            border-radius: 10px; 
+            
             padding: 10px;
-            background-color: aliceblue;
+            background-color: rgba(247, 247, 247, 0.664)	;
             display: block;
             margin-left: auto;
             margin-right: auto;
-            margin-top: 150px;
+            margin-top: 125px;
         }
 
         input {
             border-radius: 10px;
-            width: 100%;
+            width: 90%;
             padding: 10px 0;
+            margin: 5px;
         }
 
         button {
@@ -60,15 +66,15 @@
 
             <div class="control">
                 <label>E-mail <span class="required-field">*</span></label>
-                <input id="email" type="email" required>
+                <input id="email" type="email" required placeholder="Enter your Email">
             </div>
             <div class="control">
                 <label>Password <span class="required-field">*</span></label>
-                <input id="password" type="password" required>
+                <input id="password" type="password" required placeholder="Your Password">
             </div>
             <div class="control">
                 <label>Confirm Password <span class="required-field">*</span></label>
-                <input id="confirmPassword" type="password" required>
+                <input id="confirmPassword" type="password" required placeholder="Confirm Password">
             </div>
             <button type="submit">Sign up</button>
         </div>
