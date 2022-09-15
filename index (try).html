@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<style>
+   body {
+      color: rgb(200, 246, 153);
+      background-image:  url("c7bf26d60df551adf820a16060aa0a3f.jpg"); 
+      height: 100%;
+      text-align: center;
+      background-size: cover;
+   }
+   .btn {
+      background: #e5bc5c;
+      border: none;
+      height: 2rem;
+      border-radius: 5px 20px;
+      width: 10%;
+      display: block;
+      color: rgb(0, 0, 0);
+      outline: none;
+      cursor: pointer;
+      margin: 1rem auto;
+   }
+   .text{border-radius: 10px10px;
+    font-size:  20px;
+       cursor: pointer;
+     
+  /* position: absolute; */
+   } 
+#place{
+    width: 1000px;
+    height: 1000px;
+    border: 20px solid 
+    ;
+}
+</style>
+<body ondrag="mydrop()"ondragover=mydrag() >
+   
+   <button type="button"id="th" style.fontSize='35px'>Big Text</button>
+
+   <button type="button" id="tr" style.fontSize='8px'>Small Text</button>
+   
+   <button type="button"id="te" style.fontSize='16px'>Normal Text</button>
+   <nav>
+      
+   <div>
+      
+  </div>
+  <div>
+   
+   <input id="chk-bold" type="checkbox"><label for="chk-bold">Bold</label>
+   <input id="chk-italic" type="checkbox"><label for="chk-italic">Italic</label>
+   <input id="chk-underline" type="checkbox"><label for="chk-underline">Underline</label>
+   <button  id="increase" onclick="increasefont ()">f+</button>
+   <button  id="increase-">f-</button>
+</div>
+<div id="output">Something Goes Here</div>
+   
+      </button>
+      <label  for="font-size"> font-size</label>
+   <select id="font-size" onchange="myFunction(this)" >
+   <option>xx-small</option>
+   <option>x-small</option>
+   <option>small</option>
+   <option>medium</option>
+   <option>large</option>
+   <option>x-large</option>
+   <option>xx-large</option>
+   <option>100%</option>
+   <option>250%</option>
+   <option>2cm</option>
+   <option>100px</option>
+   </select>
+   <button  onclick="create()" class="btn">Create Textarea</button>
+   
+ 
+</div> 
+</div> 
+
+<div id="place"></div>
+   
+</nav>
+ 
+<p id="demo">Change My Font</p>
+
+
+<script>
+       function mydrop(){
+           
+           document.getElementById("place")
+       }
+       function mydrag(){
+           event.preventDefault();
+       }
+    //    var ta = document.createElement("textarea") 
+ var f1 =document.getElementById("increase")
+ var f2 =document.getElementById("increase-")
+ var font = 10;
+ var ta = document.createElement("textarea")
+ ta.setAttribute("id","text")
+   function create() {
+    
+     var notes=document.getElementById("place");
+     var ta = document.createElement("textarea") 
+       ta.textContent = "new text.";
+      ta.setAttribute('rows', '8');
+      ta.className="text"
+    ta.setAttribute("id","text")
+      ta.draggable=("true")
+      notes.appendChild(ta);
+      console.log(document.getElementById("text"));
+     
+   }
+var bigfont=100;
+   var rew = document.getElementsByClassName("text");
+   function increasefont (){
+      bigfont=i;
+ for (var i = 0; i < rew.langth; i++) {
+    bigfont+=1
+   
+ }
+ 
+ console.log(document.getElementById("text"));
+ }
+   
+//    function myFunction(selectTag) {
+//   var listValue = selectTag.options[selectTag.selectedIndex].text;
+//   listValue. document.getElementsByClassName("text").style.fontSize = listValue;
+// }
+//    var closebtns = document.getElementsByClassName("text");
+// var i;
+
+// for (i = 0; i < closebtns.length; i++) {
+//   closebtns[i].addEventListener("ta", function() {
+//     this.parentElement.style.display = 'none';
+//   });
+// }
+//    function clear(){
+//  var gh=document.getElementById("text");
+//  gh.innerHTML("");
+
+// }
+// var output = document.getElementById('output');
+// var btnIncreaseFSize = document.getElementById('btn-increase-fsize');
+// var btnDecreaseFSize = document.getElementById('btn-decrease-fsize');
+// var chkBold = document.getElementById('chk-bold');
+// var chkItalic = document.getElementById('chk-italic');
+// var chkUnderline = document.getElementById('chk-underline');
+
+// chkBold.addEventListener('click', function(e){
+//     output.classList.toggle('bold');
+//     console.log(e);
+//     console.log(this === e.target);
+// });
+
+// chkItalic.addEventListener('click', function(){
+//     output.classList.toggle('italic');
+// });
+
+// chkUnderline.addEventListener('click', function(){
+//     output.classList.toggle('underline');
+// });
+
+// btnIncreaseFSize.addEventListener('click', function(){
+//     var fSize = (parseInt(getComputedStyle(output).fontSize));
+//     fSize += 2;
+//     output.style.fontSize = fSize + "px";
+// });
+
+// btnDecreaseFSize.addEventListener('click', function(){
+//     var fSize = (parseInt(getComputedStyle(output).fontSize));
+//     fSize -= 2;
+//     output.style.fontSize = fSize + "px";
+// });
+</script>
+</body>
+</html>

@@ -29,7 +29,7 @@ function login(){
         return;
     }
     localStorage.setItem("User", JSON.stringify(existedUser));
-    location.href = "file:///D:/iti/JS/proj_note/rar/Note/note.html";
+    location.href = "note.html";
 
 }
 

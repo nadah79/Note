@@ -18,7 +18,7 @@ function onFormSubmit(){
     }
     saveNewUser(user);
     alert('Your Registeration successfully');
-    location.href = "file:///D:/iti/JS/proj_note/profile.html";
+    location.href = "sign-in.html";
 }
 
 function checkEmailAlreadyExisted(email){

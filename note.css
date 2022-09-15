@@ -1,8 +1,6 @@
 body{
     margin: 5em;
     background-image: url("background.jpg");
-    
-
 }
 .mainNav{
     display: inline;
@@ -54,10 +52,35 @@ li:hover {
     height: 200px;
     width: 200px;
 
-
 }
 .textArea:optional {
    user-select: all;
     background-color: rgb(243, 224, 174);
 
-   }
+}
+
+input{
+    font-size-adjust:  10px;
+    padding: 10px;
+    resize:horizontal;
+    height: auto;
+    width: 200px;
+    list-style-type: none;
+
+}   
+input:optional {
+    background-color: rgba(161, 192, 119, 0.904);
+    
+    }
+    .toDoList{
+        display: inline-grid ;
+        padding: 10px;
+        margin: 10px;
+
+
+    }
+    #notPad    li{
+        display: block;
+        padding: 0;
+        margin: 0;
+    }
