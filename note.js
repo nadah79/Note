@@ -5,8 +5,8 @@ function createNote() {
     var noteId = 'id' + (new Date()).getTime();
     var ta = createNewTextAreaElemnt("", noteId);
     var userData = getUserDataAuth();
-    if(userData != null){
-      addNote(ta, noteId, userData);
+    if (userData != null) {
+        addNote(ta, noteId, userData);
     }
 
 }
@@ -22,7 +22,7 @@ function saveNote(notes) {
     localStorage.setItem("notes", JSON.stringify(notes));
 }
 
-function getNotes() {
+function getUserNotes() {
     var userData = getUserDataAuth();
     if (userData == null) {
         return [];
@@ -34,12 +34,22 @@ function getNotes() {
     notes = notes.filter(n => n.userId == userData.id);
     return notes;
 }
+function getNotes() {
+    if (localStorage.getItem("notes") == null)
+        return [];
+    var notes = JSON.parse(localStorage.getItem("notes"));
+    if (notes == null) {
+        return [];
+    }
+    return notes;
+}
 
 function updateNote(id, newContent) {
     var notes = getNotes();
+    var userData = getUserDataAuth();
     for (var index = 0; index < notes.length; index++) {
         const note = notes[index];
-        if (note.noteId == id) {
+        if (note.noteId == id && note.userId == userData.id) {
             note.content = newContent;
             note.date = new Date().toString();
             saveNote(notes);
@@ -47,6 +57,7 @@ function updateNote(id, newContent) {
         }
     }
 }
+
 
 function deleteNote(noteId) {
     var notes = getNotes();
@@ -62,7 +73,7 @@ function deleteNote(noteId) {
 }
 
 function display() {
-    var notes = getNotes();
+    var notes = getUserNotes();
     for (var index = 0; index < notes.length; index++) {
         const note = notes[index];
         if (notes == null) {
@@ -70,13 +81,13 @@ function display() {
         }
         var ta = createNewTextAreaElemnt(note.content, note.noteId);
         notPad.appendChild(ta);
-        lastModifyDate(note.noteId,ta);
+        lastModifyDate(note.noteId, ta);
     }
 }
 
-function createNewTextAreaElemnt(value, noteId){
+function createNewTextAreaElemnt(value, noteId) {
     var placeholder = "new text";
-    if(value != ""){
+    if (value != "") {
         placeholder = "";
     }
     var ta = document.createElement("textarea");
@@ -88,10 +99,10 @@ function createNewTextAreaElemnt(value, noteId){
     ta.id = noteId;
     ta.addEventListener("change", () => {
         updateNote(noteId, ta.value);
-         lastModifyDate(noteId,ta);
+        lastModifyDate(noteId, ta);
     });
     ta.addEventListener('keydown', (event) => {
-        if(event.key == "Delete"){
+        if (event.key == "Delete") {
             var noteId = event.target.id;
             deleteNote(noteId)
         }
@@ -102,90 +113,90 @@ function createNewTextAreaElemnt(value, noteId){
 
 display();
 
-function logout(){
+function logout() {
     event.preventDefault();
     localStorage.removeItem("User");
     location.href = "note.html";
 }
 
-function displayLoginURL(){
+function displayLoginURL() {
     document.getElementById("a-logout").style.display = 'none';
     let user = localStorage.getItem("User");
-    if(user == null){
+    if (user == null) {
         document.getElementById("a-login").style.display = 'inline-block';
         document.getElementById("a-register").style.display = 'inline-block';
         document.getElementById("a-logout").style.display = 'none';
-    }else{
+    } else {
         document.getElementById("a-login").style.display = 'none';
         document.getElementById("a-register").style.display = 'none';
         document.getElementById("a-logout").style.display = 'inline-block';
     }
 }
 
-function getUserDataAuth(){
+function getUserDataAuth() {
     let user = localStorage.getItem("User");
-    if(user == null){
+    if (user == null) {
         return null;
     }
     return JSON.parse(user);
 }
 
-function lastModifyDate(noteId,ta){
-    var notes = getNotes();
+function lastModifyDate(noteId, ta) {
+    var notes = getUserNotes();
     for (var index = 0; index < notes.length; index++) {
         const note = notes[index];
         if (note.noteId == noteId) {
-            ta.title="last modify date is: "+ note.date;
+            ta.title = "last modify date is: " + note.date;
             console.log(ta.title)
-        }   
+        }
     }
 }
 //////////////////////////////////
 
-function createNewToDoListElemnt(value, listId){
+function createNewToDoListElemnt(value, listId) {
     var placeholder = "new list";
-    if(value != ""){
+    if (value != "") {
         placeholder = "";
     }
-    var toDoList = document.createElement("ul");  
+    var toDoList = document.createElement("ul");
     notPad.appendChild(toDoList);
-    var list =  document.createElement("li");  
+    var list = document.createElement("li");
     toDoList.appendChild(list);
-    var input=document.createElement("input");
-    list.appendChild(input);    
+    var input = document.createElement("input");
+    list.appendChild(input);
     input.value = value;
     input.placeholder = placeholder;
     toDoList.className = "toDoList" + " " + listId;
     toDoList.draggable = ("true")
     toDoList.id = listId;
-    toDoList.addEventListener("keypress", function(event) {
+    toDoList.addEventListener("keypress", function (event) {
         if (event.key === "Enter") {
-        event.preventDefault();
-        var list =  document.createElement("li");  
-        toDoList.appendChild(list);
-        var input=document.createElement("input");
-        list.appendChild(input);
-        input.value = value;        
-        input.placeholder = placeholder;
-     }
-});
+            event.preventDefault();
+            var list = document.createElement("li");
+            toDoList.appendChild(list);
+            var input = document.createElement("input");
+            list.appendChild(input);
+            input.value = value;
+            input.placeholder = placeholder;
+        }
+    });
     return toDoList;
 }
 
-    function createToDoList() {
-        var listId = 'id' + (new Date()).getTime();
-        var input = createNewToDoListElemnt("", listId);
-        var elements=[input.value];
+function createToDoList() {
+    var listId = 'id' + (new Date()).getTime();
+    var input = createNewToDoListElemnt("", listId);
+    var elements = [input.value];
 
-         var userData = getUserDataAuth();
-        if(userData != null){
-           addList(elements, listId, userData);
-         }
+    var userData = getUserDataAuth();
+    if (userData != null) {
+        addList(elements, listId, userData);
     }
-   function addList(elements, listId, userData){
+}
+function addList(elements, listId, userData) {
     var lists = getLists();
-   
-    var newlist = { listId: listId, userId: userData.id, date: new Date().toString(), content : elements };
+
+    var newlist = { listId: listId, userId: userData.id, date: new Date().toString(), content: elements };
     lists.push(newlist);
     saveList(lists);
 }
