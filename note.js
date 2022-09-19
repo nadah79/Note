@@ -132,7 +132,7 @@ function displayLoginURL() {
         document.getElementById("a-register").style.display = 'none';
         document.getElementById("a-logout").style.display = 'inline-block';
         document.getElementById("u-name").style.display = 'inline-block';
-        document.getElementById("u-name").innerHTML = userName;
+        document.getElementById("u-name").innerHTML ="Welcome "+ userName;
 
     }
 }
