@@ -121,7 +121,8 @@ function logout() {
 
 function displayLoginURL() {
     document.getElementById("a-logout").style.display = 'none';
-    let user = localStorage.getItem("User");
+    let user = JSON.parse(localStorage.getItem("User"));
+    let userName = user.name;
     if (user == null) {
         document.getElementById("a-login").style.display = 'inline-block';
         document.getElementById("a-register").style.display = 'inline-block';
@@ -130,6 +131,9 @@ function displayLoginURL() {
         document.getElementById("a-login").style.display = 'none';
         document.getElementById("a-register").style.display = 'none';
         document.getElementById("a-logout").style.display = 'inline-block';
+        document.getElementById("u-name").style.display = 'inline-block';
+        document.getElementById("u-name").innerHTML = userName;
+
     }
 }
 
@@ -180,6 +184,11 @@ function createNewToDoListElemnt(value, listId) {
             input.placeholder = placeholder;
         }
     });
+    toDoList.addEventListener('keydown', (event) => {
+        if (event.key == "Delete") {
+            deletelist(listId)
+        }
+    });
     return toDoList;
 }
 
@@ -190,13 +199,18 @@ function createToDoList() {
 
     var userData = getUserDataAuth();
     if (userData != null) {
-        addList(elements, listId, userData);
+        // addList(elements, listId, userData);
     }
 }
-function addList(elements, listId, userData) {
-    var lists = getLists();
+// function addList(elements, listId, userData) {
+//     var lists = getLists();
 
-    var newlist = { listId: listId, userId: userData.id, date: new Date().toString(), content: elements };
-    lists.push(newlist);
-    saveList(lists);
+//     var newlist = { listId: listId, userId: userData.id, date: new Date().toString(), content: elements };
+//     lists.push(newlist);
+//     saveList(lists);
+// }
+
+
+function deletelist(listId) {
+    notPad.removeChild(document.getElementById(listId));
 }

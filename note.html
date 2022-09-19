@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,34 +9,45 @@
     <script src="https://kit.fontawesome.com/f5a62c1078.js" crossorigin="anonymous"></script>
 
 </head>
-<body >
+
+<body>
     <div>
-    <nav class="mainNav">
-        <nav class="leftnav"> 
-            <ul>
-                <li><a href="#" id="notePage" title=" notePage"><i class="fa-solid fa-note-sticky"></i> Note.iti</a></li>
-                <li id="addNote" title="add note" onclick="createNote()" ><i class="fa-solid fa-plus" ></i></li>            
-                <li id="addToDoList" title="add a to-do list" onclick="createToDoList()"><i class="fa-solid fa-table-list" ></i></li>            
-                <!-- <li id="addImage" title="add an image"><i class="fa-regular fa-image" ></i> </li>  
+        <nav class="mainNav">
+            <nav class="leftnav">
+                <ul>
+                    <li><a href="#" id="notePage" title=" notePage"><i class="fa-solid fa-note-sticky"></i> Note.iti</a>
+                    </li>
+                    <li id="addNote" title="add note" onclick="createNote()"><i class="fa-solid fa-plus"></i></li>
+                    <li id="addToDoList" title="add a to-do list" onclick="createToDoList()"><i
+                            class="fa-solid fa-table-list"></i></li>
+                    <!-- <li id="addImage" title="add an image"><i class="fa-regular fa-image" ></i> </li>  
                 <li id="changeColor" title="change note color"><i class="fa-solid fa-palette"></i></li>   -->
 
-            </ul>
-        </nav>
-        <nav class="rightnav">
-            <ul>
-               <a id="a-logout" onclick="logout()"><li id="logout">Logout</li></a>
-               <a id="a-login"  href="sign-in.html"> <li id="login">Login</li></a>
-               <a id="a-register"  href="register.html"> <li id="signup">Sign up</li></a>
-               <!-- <li id="options" title="options"><i class="fa-solid fa-gear"></i></li> -->
+                </ul>
+            </nav>
+            <nav class="rightnav">
+                <ul>
+                    <span id="u-name" style="color:blueviolet;"></span>
+                    <a id="a-logout" onclick="logout()">
+                        <li id="logout">Logout</li>
+                    </a>
+                    <a id="a-login" href="sign-in.html">
+                        <li id="login">Login</li>
+                    </a>
+                    <a id="a-register" href="register.html">
+                        <li id="signup">Sign up</li>
+                    </a>
+                    <!-- <li id="options" title="options"><i class="fa-solid fa-gear"></i></li> -->
 
-            </ul>
-        </nav> 
-    </nav>
+                </ul>
+            </nav>
+        </nav>
     </div>
-    
+
     <section id="notPad">
-       
+
     </section>
     <script src="note.js"></script>
 </body>
+
 </html>

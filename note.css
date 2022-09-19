@@ -1,8 +1,9 @@
-body{
+body {
     margin: 5em;
     background-image: url("background.jpg");
 }
-.mainNav{
+
+.mainNav {
     display: inline;
     width: 100%;
     background-color: black;
@@ -13,75 +14,86 @@ body{
     font-size: 30px;
     margin: 0;
 }
-.leftnav{
+
+.leftnav {
     float: left;
 
 }
-.rightnav{
+
+.rightnav {
     float: right;
 
 }
 
-nav ul{
+nav ul {
     list-style-type: none;
     padding: 5px 20px;
     margin: 0;
 }
-nav li{
+
+nav li {
     color: white;
     display: inline-block;
-    padding:5px 15px;
+    padding: 5px 15px;
     cursor: pointer;
 }
-nav a{
+
+nav a {
     text-decoration: none;
 }
+
 li:hover {
     color: black;
-    background-color:bisque;
-} 
-#notPad{
+    background-color: bisque;
+}
+
+#notPad {
     width: 100%;
 }
-.textArea{
-    border-radius: 10px ;
-    font-size-adjust:  10px;
+
+.textArea {
+    border-radius: 10px;
+    font-size-adjust: 10px;
     cursor: pointer;
     margin: 10px;
-    resize:horizontal;
+    resize: horizontal;
     height: 200px;
     width: 200px;
 
 }
+
 .textArea:optional {
-   user-select: all;
+    user-select: all;
     background-color: rgb(243, 224, 174);
 
 }
 
-input{
-    font-size-adjust:  10px;
+input {
+    font-size-adjust: 10px;
     padding: 10px;
-    resize:horizontal;
+    resize: horizontal;
     height: auto;
     width: 200px;
     list-style-type: none;
 
-}   
+}
+
 input:optional {
     background-color: rgba(161, 192, 119, 0.904);
-    
-    }
-    .toDoList{
-        display: inline-grid ;
-        padding: 10px;
-        margin: 10px;
-        vertical-align: top;
+
+}
+
+.toDoList {
+    display: inline-grid;
+    padding: 10px;
+    margin: 10px;
+    vertical-align: top;
 
 
-    }
-    #notPad li{
-        display: block;
-        padding: 0;
-        margin: 0;
-    }
+}
+
+#notPad li {
+    display: block;
+    padding: 0;
+    margin: 0;
+}
