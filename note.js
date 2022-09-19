@@ -59,7 +59,7 @@ function updateNote(id, newContent) {
 }
 
 
-function deleteNote(noteId) {
+function devareNote(noteId) {
     var notes = getNotes();
     var newNotes = [];
     for (var index = 0; index < notes.length; index++) {
@@ -102,9 +102,9 @@ function createNewTextAreaElemnt(value, noteId) {
         lastModifyDate(noteId, ta);
     });
     ta.addEventListener('keydown', (event) => {
-        if (event.key == "Delete") {
+        if (event.key == "Devare") {
             var noteId = event.target.id;
-            deleteNote(noteId)
+            devareNote(noteId)
         }
     });
     notPad.appendChild(ta);
@@ -121,8 +121,8 @@ function logout() {
 
 function displayLoginURL() {
     document.getElementById("a-logout").style.display = 'none';
-    let user = JSON.parse(localStorage.getItem("User"));
-    let userName = user.name;
+    var user = JSON.parse(localStorage.getItem("User"));
+   
     if (user == null) {
         document.getElementById("a-login").style.display = 'inline-block';
         document.getElementById("a-register").style.display = 'inline-block';
@@ -132,13 +132,14 @@ function displayLoginURL() {
         document.getElementById("a-register").style.display = 'none';
         document.getElementById("a-logout").style.display = 'inline-block';
         document.getElementById("u-name").style.display = 'inline-block';
+        var userName = user.name;
         document.getElementById("u-name").innerHTML ="Welcome "+ userName;
+
 
     }
 }
-
 function getUserDataAuth() {
-    let user = localStorage.getItem("User");
+    var user = localStorage.getItem("User");
     if (user == null) {
         return null;
     }
@@ -185,8 +186,8 @@ function createNewToDoListElemnt(value, listId) {
         }
     });
     toDoList.addEventListener('keydown', (event) => {
-        if (event.key == "Delete") {
-            deletelist(listId)
+        if (event.key == "Devare") {
+            devarelist(listId)
         }
     });
     return toDoList;
@@ -211,6 +212,6 @@ function createToDoList() {
 // }
 
 
-function deletelist(listId) {
+function devarelist(listId) {
     notPad.removeChild(document.getElementById(listId));
 }
