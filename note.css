@@ -60,6 +60,7 @@ li:hover {
     resize: horizontal;
     height: 200px;
     width: 200px;
+    float: left;
 
 }
 
@@ -97,4 +98,37 @@ input:optional {
     display: block;
     padding: 0;
     margin: 0;
+}
+
+.card-todo{
+    display: inline-block;
+    width: 200px;
+    margin-left: 10px;
+    border: 1px gray solid;
+    border-radius: 5px;
+    padding-left: 0px;
+    padding-right: 10px;
+}
+
+ul.todo{
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+input.input-todo{
+    width: 100%;
+    padding: 7px;
+    border: none;
+    margin: 0;
+    padding: 5px;
+    border-radius: 5px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+.todo-title{
+    color: gray;
+    font-weight: bold;
 }
