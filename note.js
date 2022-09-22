@@ -1,10 +1,11 @@
-var notPad = document.getElementById("notPad");
+let notPad = document.getElementById("notPad");
 displayLoginURL();
+display();
 
 function createNote() {
-    var noteId = 'id' + (new Date()).getTime();
-    var ta = createNewTextAreaElemnt("", noteId);
-    var userData = getUserDataAuth();
+    let noteId = 'id' + (new Date()).getTime();
+    let ta = createNewTextAreaElemnt("", noteId);
+    let userData = getUserDataAuth();
     if (userData != null) {
         addNote(ta, noteId, userData);
     }
@@ -12,8 +13,8 @@ function createNote() {
 }
 
 function addNote(ta, noteId, userData) {
-    var notes = getNotes();
-    var newNote = { noteId: noteId, userId: userData.id, date: new Date().toString(), content: ta.value };
+    let notes = getNotes();
+    let newNote = { noteId: noteId, userId: userData.id, date: new Date().toString(), content: ta.value };
     notes.push(newNote);
     saveNote(notes);
 }
@@ -23,11 +24,11 @@ function saveNote(notes) {
 }
 
 function getUserNotes() {
-    var userData = getUserDataAuth();
+    let userData = getUserDataAuth();
     if (userData == null) {
         return [];
     }
-    var notes = JSON.parse(localStorage.getItem("notes"));
+    let notes = JSON.parse(localStorage.getItem("notes"));
     if (notes == null) {
         return [];
     }
@@ -37,7 +38,7 @@ function getUserNotes() {
 function getNotes() {
     if (localStorage.getItem("notes") == null)
         return [];
-    var notes = JSON.parse(localStorage.getItem("notes"));
+    let notes = JSON.parse(localStorage.getItem("notes"));
     if (notes == null) {
         return [];
     }
@@ -45,9 +46,9 @@ function getNotes() {
 }
 
 function updateNote(id, newContent) {
-    var notes = getNotes();
-    var userData = getUserDataAuth();
-    for (var index = 0; index < notes.length; index++) {
+    let notes = getNotes();
+    let userData = getUserDataAuth();
+    for (let index = 0; index < notes.length; index++) {
         const note = notes[index];
         if (note.noteId == id && note.userId == userData.id) {
             note.content = newContent;
@@ -59,10 +60,10 @@ function updateNote(id, newContent) {
 }
 
 
-function devareNote(noteId) {
-    var notes = getNotes();
-    var newNotes = [];
-    for (var index = 0; index < notes.length; index++) {
+function deleteNote(noteId) {
+    let notes = getNotes();
+    let newNotes = [];
+    for (let index = 0; index < notes.length; index++) {
         const note = notes[index];
         if (note.noteId != noteId) {
             newNotes.push(note);
@@ -73,24 +74,24 @@ function devareNote(noteId) {
 }
 
 function display() {
-    var notes = getUserNotes();
-    for (var index = 0; index < notes.length; index++) {
+    let notes = getUserNotes();
+    for (let index = 0; index < notes.length; index++) {
         const note = notes[index];
         if (notes == null) {
             break;
         }
-        var ta = createNewTextAreaElemnt(note.content, note.noteId);
+        let ta = createNewTextAreaElemnt(note.content, note.noteId);
         notPad.appendChild(ta);
         lastModifyDate(note.noteId, ta);
     }
 }
 
 function createNewTextAreaElemnt(value, noteId) {
-    var placeholder = "new text";
+    let placeholder = "new text";
     if (value != "") {
         placeholder = "";
     }
-    var ta = document.createElement("textarea");
+    let ta = document.createElement("textarea");
     ta.value = value;
 
     ta.placeholder = placeholder;
@@ -102,16 +103,15 @@ function createNewTextAreaElemnt(value, noteId) {
         lastModifyDate(noteId, ta);
     });
     ta.addEventListener('keydown', (event) => {
-        if (event.key == "Devare") {
-            var noteId = event.target.id;
-            devareNote(noteId)
+        if (event.key == "Delete") {
+            let noteId = event.target.id;
+            deleteNote(noteId)
         }
     });
     notPad.appendChild(ta);
     return ta;
 }
 
-display();
 
 function logout() {
     event.preventDefault();
@@ -120,26 +120,25 @@ function logout() {
 }
 
 function displayLoginURL() {
-    document.getElementById("a-logout").style.display = 'none';
-    var user = JSON.parse(localStorage.getItem("User"));
-   
+    let user = JSON.parse(localStorage.getItem("User"));
     if (user == null) {
         document.getElementById("a-login").style.display = 'inline-block';
         document.getElementById("a-register").style.display = 'inline-block';
         document.getElementById("a-logout").style.display = 'none';
+        document.getElementById("u-name").style.display = 'none';
+
     } else {
         document.getElementById("a-login").style.display = 'none';
         document.getElementById("a-register").style.display = 'none';
         document.getElementById("a-logout").style.display = 'inline-block';
         document.getElementById("u-name").style.display = 'inline-block';
-        var userName = user.name;
+        let userName = user.name;
         document.getElementById("u-name").innerHTML ="Welcome "+ userName;
-
 
     }
 }
 function getUserDataAuth() {
-    var user = localStorage.getItem("User");
+    let user = localStorage.getItem("User");
     if (user == null) {
         return null;
     }
@@ -147,8 +146,8 @@ function getUserDataAuth() {
 }
 
 function lastModifyDate(noteId, ta) {
-    var notes = getUserNotes();
-    for (var index = 0; index < notes.length; index++) {
+    let notes = getUserNotes();
+    for (let index = 0; index < notes.length; index++) {
         const note = notes[index];
         if (note.noteId == noteId) {
             ta.title = "last modify date is: " + note.date;
@@ -159,15 +158,15 @@ function lastModifyDate(noteId, ta) {
 //////////////////////////////////
 
 function createNewToDoListElemnt(value, listId) {
-    var placeholder = "new list";
+    let placeholder = "new list";
     if (value != "") {
         placeholder = "";
     }
-    var toDoList = document.createElement("ul");
+    let toDoList = document.createElement("ul");
     notPad.appendChild(toDoList);
-    var list = document.createElement("li");
+    let list = document.createElement("li");
     toDoList.appendChild(list);
-    var input = document.createElement("input");
+    let input = document.createElement("input");
     list.appendChild(input);
     input.value = value;
     input.placeholder = placeholder;
@@ -177,41 +176,41 @@ function createNewToDoListElemnt(value, listId) {
     toDoList.addEventListener("keypress", function (event) {
         if (event.key === "Enter") {
             event.preventDefault();
-            var list = document.createElement("li");
+            let list = document.createElement("li");
             toDoList.appendChild(list);
-            var input = document.createElement("input");
+            let input = document.createElement("input");
             list.appendChild(input);
             input.value = value;
             input.placeholder = placeholder;
         }
     });
     toDoList.addEventListener('keydown', (event) => {
-        if (event.key == "Devare") {
-            devarelist(listId)
+        if (event.key == "delete") {
+            deletelist(listId)
         }
     });
     return toDoList;
 }
 
 function createToDoList() {
-    var listId = 'id' + (new Date()).getTime();
-    var input = createNewToDoListElemnt("", listId);
-    var elements = [input.value];
+    let listId = 'id' + (new Date()).getTime();
+    let input = createNewToDoListElemnt("", listId);
+    let elements = [input.value];
 
-    var userData = getUserDataAuth();
+    let userData = getUserDataAuth();
     if (userData != null) {
         // addList(elements, listId, userData);
     }
 }
 // function addList(elements, listId, userData) {
-//     var lists = getLists();
+//     let lists = getLists();
 
-//     var newlist = { listId: listId, userId: userData.id, date: new Date().toString(), content: elements };
+//     let newlist = { listId: listId, userId: userData.id, date: new Date().toString(), content: elements };
 //     lists.push(newlist);
 //     saveList(lists);
 // }
 
 
-function devarelist(listId) {
+function deletelist(listId) {
     notPad.removeChild(document.getElementById(listId));
 }
