@@ -408,8 +408,13 @@ function createListTodoElements(){
 function changeFont(selectTag) {
     var listValue = selectTag.options[selectTag.selectedIndex].text;  
     var textarea=document.querySelectorAll(".textArea")
+    var todolist=document.querySelectorAll(".input-todo")
+
     for (let i = 0; i< textarea.length; i++) {
-        textarea[i].style.fontSize = listValue
+        textarea[i].style.fontSize = listValue;
+}
+for (let i = 0; i< todolist.length; i++) {
+    todolist[i].style.fontSize = listValue;
 }
     
 }
