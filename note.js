@@ -408,7 +408,6 @@ function createListTodoElements(){
 function changeFont(selectTag) {
     var listValue = selectTag.options[selectTag.selectedIndex].text;  
     var textarea=document.querySelectorAll(".textArea")
-    var toDoList =document.querySelectorAll(".toDoList")
     for (let i = 0; i< textarea.length; i++) {
         textarea[i].style.fontSize = listValue
 }
