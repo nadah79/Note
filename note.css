@@ -72,11 +72,11 @@ li:hover {
 
 input {
     font-size-adjust: 10px;
-    padding: 10px;
     resize: horizontal;
     height: auto;
     width: 200px;
     list-style-type: none;
+    font-size: 15px;
 
 }
 
@@ -87,8 +87,6 @@ input:optional {
 
 .toDoList {
     display: inline-grid;
-    padding: 10px;
-    margin: 10px;
     vertical-align: top;
 }
 
@@ -107,7 +105,6 @@ input:optional {
     padding-left: 0px;
     padding-right: 10px;
     vertical-align: top;
-
 }
 
 ul.todo{
@@ -119,7 +116,6 @@ ul.todo{
 
 input.input-todo{
     width: 100%;
-    padding: 7px;
     border: none;
     margin: 0;
     padding: 5px;
