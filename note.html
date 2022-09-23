@@ -20,9 +20,21 @@
                     <li id="addNote" title="add note" onclick="createNote()"><i class="fa-solid fa-plus"></i></li>
                     <li id="addToDoList" title="add a to-do list" onclick="createToDoList()"><i
                             class="fa-solid fa-table-list"></i></li>
-                    <!-- <li id="addImage" title="add an image"><i class="fa-regular fa-image" ></i> </li>  
-                <li id="changeColor" title="change note color"><i class="fa-solid fa-palette"></i></li>   -->
-
+                    <!-- <li id="addImage" title="add an image"><i class="fa-regular fa-image" ></i> </li>  -->
+                <!-- <li id="changeColor" title="change note color"><i class="fa-solid fa-palette"></i>     -->
+                <!-- <li class="custom-select" style="width:200px"> -->
+              <li title="chang font-size">
+                    <label for="fonts" ><i class="fa-solid fa-font"></i></label>
+                    <select id="fonts" onchange="changeFont(this);">
+                        <option >small</option>
+                        <option >medium</option>
+                        <option >large</option>
+                        <option >x-large</option>
+                        <option >xx-large</option>
+                        <option >250%</option>
+                        <option >1cm</option>
+                      </select>                       
+                </li>
                 </ul>
             </nav>
             <nav class="rightnav">
@@ -43,7 +55,7 @@
             </nav>
         </nav>
     </div>
-
+    
     <section id="notPad">
 
     </section>

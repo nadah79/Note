@@ -162,6 +162,7 @@ function createNewTextAreaElemnt(value, noteId) {
     ta.placeholder = placeholder;
     ta.className = "textArea" + " " + noteId;
     ta.draggable = ("true")
+    ta.style.fontSize="x-larg";
     ta.id = noteId;
     ta.addEventListener("change", () => {
         updateNote(noteId, ta.value);
@@ -216,7 +217,6 @@ function lastModifyDate(noteId, ta) {
         const note = notes[index];
         if (note.noteId == noteId) {
             ta.title = "last modify date is: " + note.date;
-            console.log(ta.title)
         }
     }
 }
@@ -402,4 +402,15 @@ function getContentTodoList(noteId){
 function createListTodoElements(){
     let ulElement = document.createElement("ul");
     ulElement.className = "toDoList todo";
+}
+
+// /////////////////////////////////
+function changeFont(selectTag) {
+    var listValue = selectTag.options[selectTag.selectedIndex].text;  
+    var textarea=document.querySelectorAll(".textArea")
+    var toDoList =document.querySelectorAll(".toDoList")
+    for (let i = 0; i< textarea.length; i++) {
+        textarea[i].style.fontSize = listValue
+}
+    
 }

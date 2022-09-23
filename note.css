@@ -54,7 +54,7 @@ li:hover {
 
 .textArea {
     border-radius: 10px;
-    font-size-adjust: 10px;
+    font-size: 15px;
     cursor: pointer;
     margin: 10px;
     resize: horizontal;
@@ -64,7 +64,7 @@ li:hover {
 
 }
 
-.textArea:optional {
+.textArea:optional{
     user-select: all;
     background-color: rgb(243, 224, 174);
 
@@ -129,6 +129,7 @@ input.input-todo{
 }
 
 .todo-title{
-    color: gray;
+    color: black;
     font-weight: bold;
 }
+ 
